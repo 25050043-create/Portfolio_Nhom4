@@ -2,3 +2,58 @@
 @media(max-width:900px){.about-grid,.journey-grid,.contact-grid{gap:var(--space-md)}.projects-grid{grid-template-columns:1fr}}
 @media(max-width:700px){.container{width:min(100% - 36px,520px)}.section{padding:var(--space-lg) 0}.menu-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px}.nav-links{display:none;position:absolute;left:0;right:0;top:67px;background:var(--paper);border-bottom:1px solid var(--line);padding:22px 24px;flex-direction:column;align-items:stretch}.nav-links.open{display:flex}.hero{grid-template-columns:1fr;gap:var(--space-md)}.about-grid,.journey-grid,.contact-grid{grid-template-columns:1fr}.skills-grid{grid-template-columns:1fr}.timeline-item{grid-template-columns:100px 1fr}.footer-inner{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+@media (max-width: 768px) {
+  .floating-note.note-bottom {
+    /* Đưa margin-right về 0 hoặc khoảng âm nhỏ hơn để không bị tràn lề */
+    margin-right: -20px !important; 
+    
+    /* Tùy chỉnh kích thước font và khoảng cách cho gọn gàng */
+    font-size: 13px;
+    padding: 8px 12px;
+    
+    /* Đảm bảo khung note không đè lên content chính */
+    position: relative; 
+    right: auto;
+    bottom: auto;
+  }
+  
+  .floating-note .note-number {
+    font-size: 14px;
+  }
+  .floating-note.note-top {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Tối ưu riêng cho Mobile (màn hình < 768px) */
+@media (max-width: 768px) {
+  .floating-note.note-top {
+    /* Đổi vị trí linh hoạt để không che mất content chính */
+    position: relative; 
+    top: auto;
+    right: auto;
+    margin: 10px auto;
+    
+    /* Thu nhỏ kích thước và định dạng lại khoảng cách */
+    padding: 6px 10px;
+    font-size: 12px;
+    max-width: fit-content;
+    box-sizing: border-box;
+  }
+
+  .floating-note .note-icon {
+    font-size: 12px;
+  }
+}
+}
