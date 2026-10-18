@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+body {
+min-width: 0px;
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 700px;
+    background-color: #52031E ;
+}
+#dong1 #phai h2 {
+    color: #FFFFFF;
+    margin-top: -88px;
+    margin-left: 35px;
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.trang_diem:hover{
+    content: url(Images/trang_diem_over.gif);
+}
+.duong_da:hover{
+    content: url(Images/duong_da_over.gif);
+}
+.nuoc_hoa:hover{
+    content: url(Images/nuoc_hoa_over.gif);
+}
+.duong_toc:hover{
+    content: url(Images/duong_toc_over.gif);
+}
+.duong_the:hover{
+    content: url(Images/duong_the_over.gif);
+}
+.nam_gioi:hover{
+    content: url(Images/nam_gioi_over.gif);
+}
+#dong1 #phai p {
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: small;
+    width: 536px;
+    text-align: justify;
+    padding-top: 0px;
+    padding-right: 0px;
+    margin-left: 26px;
+}
+
+ a :hover{
+    color: #52031E;
+    text-decoration: underline;
+ }
+.menu {
+    list-style: none;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    display: flex;
+    background-color: #FF9100;
+    font-size: small;
+    margin-top: -4px;
+    border-top: 1px solid #FFFFFF;
+    border-bottom:1px solid #FFFFFF;
+    
+}
+#phai p img {
+    float: right;
+    margin-left: 14px;
+
+}
+
+#dong1 {
+    background-image: url("Images/nen.gif");
+	background-repeat: repeat-y;
+	background-size: 23%;
+}
+body table {
+    margin-top: -13px;
+}
+.menu li {
+    margin: 0 ;
+text-align: left;
+}
+#dong1 .giua {
+    text-align: center;
+}
+
+
+
+
+.menu li a {
+    display: block;
+    padding: 14px 5px;
+    color: white;
+    text-decoration: none;
+}
+#dong1 #phai {
+    background-color: #670022;
+    width: 577px;
+    background-image: url(M%E1%BB%B9%20ph%E1%BA%A9m/images/template_07.gif);
+}
+#dong1 .btn  {
+    background-image: url(M%E1%BB%B9%20ph%E1%BA%A9m/images/nut_tim_kiem.gif);
+    color: #FFFFFF;
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #922722;
+}
+#dong1 p {
+    width: 106px;
+    height: 2px;
+    color: #FFFFFF;
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: small;
+}

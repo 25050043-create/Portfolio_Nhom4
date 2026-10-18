@@ -12,14 +12,23 @@
   <script src="js/script.js" defer></script>
 </head>
 <body>
+  <div class="scroll-progress-bar" id="progressBar"></div>
+  <div class="custom-cursor" id="cursorDot"></div>
+  <div class="custom-cursor-follower" id="cursorFollower"></div>
+
   <a class="skip-link" href="#main">Bỏ qua điều hướng</a>
   <header class="site-header" id="top">
     <nav class="nav container" aria-label="Điều hướng chính">
       <a class="brand" href="#home" aria-label="Portfolio, về đầu trang"><span class="brand-mark">V.</span><span>Trang Đầu<span class="brand-dot">.</span></span></a>
       <button class="menu-toggle" id="menuToggle" aria-label="Mở menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
       <div class="nav-links" id="navLinks">
-        <a href="#about">Giới thiệu</a><a href="#skills">Kỹ năng</a><a href="#journey">Hành trình</a><a href="#projects">Dự án</a><a href="#contact" class="nav-cta">Liên hệ <span>↗</span></a>
+        <a href="#about">Giới thiệu</a>
+        <a href="#skills">Kỹ năng</a>
+        <a href="#journey">Hành trình</a>
+        <a href="#projects">Dự án</a>
+        <a href="#contact" class="nav-cta">Liên hệ <span>↗</span></a>
         <button class="theme-toggle" id="themeToggle" aria-label="Bật chế độ tối" title="Đổi giao diện">☾</button>
+        <div class="nav-indicator"></div>
       </div>
     </nav>
   </header>
@@ -125,16 +134,43 @@
     <section class="section container" id="projects">
       <div class="projects-heading reveal">
         <div class="section-heading"><p class="eyebrow">04 — DỰ ÁN CHỌN LỌC</p><h2>Những điều mình<br><em>đã tạo ra.</em></h2></div>
-        <div class="project-filters" role="group" aria-label="Lọc dự án"><button class="filter-btn active" data-filter="all">Tất cả <span>02</span></button><button class="filter-btn" data-filter="design">Thiết kế</button><button class="filter-btn" data-filter="code">Lập trình</button></div>
+        <div class="project-filters" role="group" aria-label="Lọc dự án"><button class="filter-btn active" data-filter="all">Tất cả <span>02</span></button><button class="filter-btn" data-filter="design">Dự án 1</button><button class="filter-btn" data-filter="code">Dự án 2</button></div>
       </div>
       <div class="projects-grid">
-        <article class="project-card project-large reveal" data-category="design">
-          <div class="project-visual visual-shop"><div class="mock-browser"><div class="browser-bar"><i></i><i></i><i></i><span>slowstudio.design</span></div><div class="shop-layout"><div class="shop-copy"><small>OBJECTS FOR SLOW LIVING</small><strong>Make room<br>for calm.</strong><span>Thoughtful pieces for everyday rituals.</span><b>EXPLORE COLLECTION ↗</b></div><div class="shop-product"><div class="vase vase-one"></div><div class="vase vase-two"></div><div class="vase vase-three"></div></div></div></div></div>
-          <div class="project-info"><div><p class="project-type">01 / UI DESIGN</p><h3>Slow Studio — Cửa hàng phong cách sống</h3><p>Thiết kế trang chủ thương mại điện tử với bố cục thoáng, bảng màu tự nhiên và trải nghiệm xem sản phẩm trực quan.</p></div><a class="project-link" href="#contact" aria-label="Hỏi thêm về dự án Slow Studio">↗</a></div><div class="skill-tags"><span>Figma</span><span>UI Design</span><span>Responsive concept</span></div>
+        <!-- Dự án 1: BookVeSK -->
+        <article class="project-card project-large reveal" data-category="code">
+          <div class="project-visual visual-shop" style="padding: 0; background: #e9e5df;">
+            <a href="DuAn/BookVeSK/index.html" style="display: block; width: 100%; height: 100%;">
+              <img src="DuAn/BookVeSK/Images/banner.jpeg" alt="Dự án Đặt Vé Sự Kiện" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.onerror=null; this.src='DuAn/MyPham/sanpham.jpg';">
+            </a>
+          </div>
+          <div class="project-info">
+            <div>
+              <p class="project-type">01 / WEB APP</p>
+              <h3><a href="DuAn/BookVeSK/index.html">BookVeSK — Hệ thống Đặt Vé Sự Kiện</a></h3>
+              <p>Website hỗ trợ tra cứu lịch trình sự kiện, đăng ký tài khoản và đặt vé trực tuyến với giao diện thân thiện, tối ưu trải nghiệm người dùng.</p>
+            </div>
+            <a class="project-link" href="DuAn/BookVeSK/index.html" aria-label="Xem dự án BookVeSK">↗</a>
+          </div>
+          <div class="skill-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Lịch trình & Đăng ký</span></div>
         </article>
-        <article class="project-card reveal" data-category="code">
-          <div class="project-visual visual-task"><div class="task-window"><div class="task-header"><span>little steps</span><span>✳</span></div><p class="task-date">MONDAY, 12 OCTOBER</p><h4>Today, gently.</h4><div class="task-row done"><span>✓</span> Plan the week</div><div class="task-row"><span></span> Build portfolio</div><div class="task-row"><span></span> Take a little break</div><div class="task-progress"><span></span></div><small>1 OF 3 COMPLETED</small></div></div>
-          <div class="project-info"><div><p class="project-type">02 / FRONT-END</p><h3>Little Steps — Trình quản lý việc nhỏ</h3><p>Ứng dụng checklist tối giản giúp theo dõi công việc, đánh dấu hoàn thành và duy trì nhịp làm việc tích cực.</p></div><a class="project-link" href="#contact" aria-label="Hỏi thêm về dự án Little Steps">↗</a></div><div class="skill-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+
+        <!-- Dự án 2: MyPham -->
+        <article class="project-card reveal" data-category="design">
+          <div class="project-visual visual-task" style="padding: 0; background: #dfe3e0;">
+            <a href="DuAn/MyPham/index.html" style="display: block; width: 100%; height: 100%;">
+              <img src="DuAn/MyPham/sanpham.jpg" alt="Dự án Cửa Hàng Mỹ Phẩm" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </a>
+          </div>
+          <div class="project-info">
+            <div>
+              <p class="project-type">02 / E-COMMERCE</p>
+              <h3><a href="DuAn/MyPham/index.html">GlowBeauty — Cửa Hàng Mỹ Phẩm</a></h3>
+              <p>Giao diện trưng bày danh mục sản phẩm chăm sóc vẻ đẹp sang trọng, tích hợp thông tin giới thiệu thương hiệu và bố cục xem sản phẩm trực quan.</p>
+            </div>
+            <a class="project-link" href="DuAn/MyPham/index.html" aria-label="Xem dự án MyPham">↗</a>
+          </div>
+          <div class="skill-tags"><span>HTML/CSS</span><span>UI Design</span><span>Responsive Layout</span></div>
         </article>
       </div>
     </section>
