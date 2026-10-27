@@ -68,23 +68,12 @@ html {
 }
 
 @media (max-width: 700px) {
-  /* Khóa cuộn trang khi menu đang mở */
+  /* Khóa cuộn trang CHỈ KHI menu đang mở */
   body.menu-open {
-    overflow: hidden;
+    overflow: hidden !important;
   }
 
-  /* Nút Menu Toggle nằm cố định góc trên */
-  .menu-toggle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    z-index: 101;
-    cursor: pointer;
-  }
-
-  /* Khung Menu trượt (Off-canvas Drawer) */
+  /* Khung Drawer trượt */
   .nav-links {
     display: flex;
     position: fixed;
@@ -107,40 +96,8 @@ html {
     visibility: hidden;
   }
 
-  /* Trạng thái mở menu */
   .nav-links.open {
     transform: translateX(0);
     visibility: visible;
-  }
-
-  /* Style cho từng mục liên kết */
-  .nav-links > a:not(.nav-cta) {
-    display: block;
-    padding: 12px 16px;
-    border-radius: 8px;
-    font-size: var(--fs-base);
-    font-weight: 600;
-    color: var(--ink);
-    text-align: left;
-    transition: background 0.2s ease, color 0.2s ease;
-  }
-
-  .nav-links > a:not(.nav-cta):hover,
-  .nav-links > a:not(.nav-cta).active {
-    background: var(--ivory);
-    color: var(--rose);
-  }
-
-  /* Nút Liên hệ nổi bật ở cuối menu */
-  .nav-cta {
-    margin-top: auto;
-    text-align: center;
-    padding: 14px 20px;
-    border-radius: 25px;
-  }
-
-  /* Thanh gạch chân trượt ẩn trên mobile */
-  .nav-indicator {
-    display: none !important;
   }
 }

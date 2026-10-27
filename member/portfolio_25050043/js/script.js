@@ -3,8 +3,21 @@ const $ = (selector, scope = document) => scope.querySelector(selector); const $
 const menuToggle = $("#menuToggle");
 const navLinks = $("#navLinks");
 
+// --- THÊM HÀM ĐÓNG MENU DÙNG CHUNG ---
+function closeMenu() {
+  if (menuToggle) {
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Mở menu");
+  }
+  if (navLinks) {
+    navLinks.classList.remove("open");
+  }
+  // Xóa class menu-open khỏi body để khôi phục khả năng cuộn trang
+  document.body.classList.remove("menu-open");
+}
+
+// --- CẬP NHẬT SỰ KIỆN SỰ KIỆN CLICK MENU ---
 if (menuToggle && navLinks) {
-  // Xử lý bật/tắt menu mobile
   menuToggle.addEventListener("click", (e) => {
     e.stopPropagation();
     const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
@@ -13,29 +26,42 @@ if (menuToggle && navLinks) {
     menuToggle.setAttribute("aria-label", nextState ? "Đóng menu" : "Mở menu");
     navLinks.classList.toggle("open", nextState);
     document.body.classList.toggle("menu-open", nextState);
-});
+  });
 
-  // Đóng menu khi click ra ngoài vùng menu
+  // Đóng menu khi click ra ngoài
   document.addEventListener("click", (e) => {
     if (navLinks.classList.contains("open") && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Mở menu");
-      navLinks.classList.remove("open");
-      document.body.classList.remove("menu-open");
+      closeMenu();
     }
   });
 
-  // Đóng menu khi bấm phím Escape
+  // Đóng menu khi bấm phím ESC
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && navLinks.classList.contains("open")) {
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Mở menu");
-      navLinks.classList.remove("open");
-      document.body.classList.remove("menu-open");
+      closeMenu();
       menuToggle.focus();
     }
   });
 }
+
+// --- CẬP NHẬT SỰ KIỆN CLICK CHUYỂN TRANG (NAV LINKS) ---
+$$("nav a[href^='#']").forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    const targetId = this.getAttribute("href");
+
+    if (targetId && targetId !== "#") {
+      const targetElement = $(targetId);
+      if (targetElement) {
+        e.preventDefault();
+
+        // Đóng menu mobile và bỏ khóa cuộn trước khi thực hiện cuộn
+        closeMenu();
+
+        smoothScrollTo(targetElement, 1000, 70);
+      }
+    }
+  });
+});
 
  // --- HIỆU ỨNG HẠT LẤP LÁNH (TỐI ƯU) ---
 const sparklesList = ['✦', '✳', '★', '✧', '•'];
