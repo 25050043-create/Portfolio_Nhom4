@@ -4,11 +4,36 @@ const menuToggle = $("#menuToggle");
 const navLinks = $("#navLinks");
 
 if (menuToggle && navLinks) {
-  menuToggle.addEventListener("click", () => {
+  // Xử lý bật/tắt menu mobile
+  menuToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
     const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-    menuToggle.setAttribute("aria-expanded", String(!isOpen));
-    menuToggle.setAttribute("aria-label", isOpen ? "Mở menu" : "Đóng menu");
-    navLinks.classList.toggle("open", !isOpen);
+    const nextState = !isOpen;
+    menuToggle.setAttribute("aria-expanded", String(nextState));
+    menuToggle.setAttribute("aria-label", nextState ? "Đóng menu" : "Mở menu");
+    navLinks.classList.toggle("open", nextState);
+    document.body.classList.toggle("menu-open", nextState);
+});
+
+  // Đóng menu khi click ra ngoài vùng menu
+  document.addEventListener("click", (e) => {
+    if (navLinks.classList.contains("open") && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Mở menu");
+      navLinks.classList.remove("open");
+      document.body.classList.remove("menu-open");
+    }
+  });
+
+  // Đóng menu khi bấm phím Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && navLinks.classList.contains("open")) {
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Mở menu");
+      navLinks.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      menuToggle.focus();
+    }
   });
 }
 

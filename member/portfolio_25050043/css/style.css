@@ -66,3 +66,81 @@ html {
     display: none !important;
   }
 }
+
+@media (max-width: 700px) {
+  /* Khóa cuộn trang khi menu đang mở */
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  /* Nút Menu Toggle nằm cố định góc trên */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    z-index: 101;
+    cursor: pointer;
+  }
+
+  /* Khung Menu trượt (Off-canvas Drawer) */
+  .nav-links {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100vh;
+    height: 100dvh;
+    background: var(--paper);
+    border-left: 1px solid var(--line);
+    padding: 80px 24px 32px;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 16px;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
+    visibility: hidden;
+  }
+
+  /* Trạng thái mở menu */
+  .nav-links.open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  /* Style cho từng mục liên kết */
+  .nav-links > a:not(.nav-cta) {
+    display: block;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--ink);
+    text-align: left;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .nav-links > a:not(.nav-cta):hover,
+  .nav-links > a:not(.nav-cta).active {
+    background: var(--ivory);
+    color: var(--rose);
+  }
+
+  /* Nút Liên hệ nổi bật ở cuối menu */
+  .nav-cta {
+    margin-top: auto;
+    text-align: center;
+    padding: 14px 20px;
+    border-radius: 25px;
+  }
+
+  /* Thanh gạch chân trượt ẩn trên mobile */
+  .nav-indicator {
+    display: none !important;
+  }
+}
